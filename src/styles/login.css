@@ -1,0 +1,351 @@
+/* DevCollective login — match the register/profile editorial system. */
+
+body:has(main[class*="max-w-[824px]"]) {
+  background: #f7f2e9;
+  color: #171717;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 {
+  min-height: calc(100vh - 74px);
+  padding-top: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(185, 215, 255, 0.22), transparent 26%),
+    radial-gradient(circle at 12% 76%, rgba(232, 223, 255, 0.20), transparent 28%),
+    radial-gradient(circle at 58% 92%, rgba(201, 244, 223, 0.16), transparent 24%),
+    #f7f2e9;
+  color: #171717;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20::before {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(23,23,23,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,23,23,0.055) 1px, transparent 1px),
+    radial-gradient(rgba(23,23,23,0.12) 0.65px, transparent 0.75px);
+  background-size: 32px 32px, 32px 32px, 7px 7px;
+  background-position: 0 0, 0 0, 1px 2px;
+}
+
+/* Two-column composition, deliberately matching Profile Setup. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main {
+  width: min(1320px, calc(100% - 80px));
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(46px, 6vw, 88px) 0 96px;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.78fr) minmax(560px, 1.22fr);
+  column-gap: clamp(56px, 6vw, 96px);
+  row-gap: 24px;
+  align-items: start;
+}
+
+/* Left editorial rail. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type {
+  grid-column: 1;
+  grid-row: 1;
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  padding: 0 0 28px;
+  border-bottom: 2px solid #171717;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type {
+  min-width: 0;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type::before {
+  content: "[ SIGN IN / YOUR WORKSPACE ]";
+  display: block;
+  margin-bottom: 32px;
+  color: #6d675f;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type::after {
+  content: "SECURE ACCESS / CLERK → SUPABASE PROFILE";
+  display: block;
+  margin-top: 20px;
+  color: #6d675f;
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .13em;
+  line-height: 1.7;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type h1,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type h1 {
+  margin: 0;
+  max-width: 100%;
+  color: #171717 !important;
+  font-size: clamp(4rem, 5.4vw, 5.7rem);
+  line-height: .82;
+  letter-spacing: -.055em;
+  overflow-wrap: normal;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type h1::first-letter {
+  color: #b9d7ff;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type p,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type p {
+  margin-top: 28px;
+  max-width: 470px;
+  color: #171717 !important;
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.62;
+}
+
+/* Main login surface. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:nth-of-type(2),
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(32px, 4vw, 48px);
+  background: rgba(251,247,239,.94);
+  color: #171717;
+  border: 2px solid #171717;
+  border-radius: 0;
+  box-shadow: 9px 9px 0 #171717;
+  position: relative;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2)::before {
+  content: "01 / ACCOUNT ACCESS";
+  display: block;
+  margin: -12px 0 26px;
+  color: #6d675f;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:nth-of-type(2) form > div,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2) form > div {
+  color: #171717;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 label,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 label {
+  color: #6d675f !important;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 input,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 input {
+  width: 100%;
+  height: 68px;
+  background: #fffdf8 !important;
+  color: #171717 !important;
+  border: 2px solid #171717 !important;
+  border-radius: 0;
+  padding: 0 18px;
+  font-size: 15px;
+  box-shadow: none;
+  transition: box-shadow 160ms ease, background-color 160ms ease;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 input::placeholder,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 input::placeholder {
+  color: #6d675f !important;
+  opacity: .78;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 input:focus,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 input:focus {
+  outline: none;
+  border-color: #171717 !important;
+  background: #fbf7ef !important;
+  box-shadow: 4px 4px 0 #b9d7ff;
+}
+
+/* Primary commit-style action. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 button[type="submit"],
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 button[type="submit"] {
+  min-height: 68px;
+  margin-top: 26px;
+  background: #b9d7ff !important;
+  color: #171717 !important;
+  border: 2px solid #171717 !important;
+  box-shadow: 6px 6px 0 #171717 !important;
+  border-radius: 0;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .10em;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 button[type="submit"]:hover,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 button[type="submit"]:hover {
+  background: #c9f4df !important;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 button[type="submit"]:active,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 button[type="submit"]:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 #171717 !important;
+}
+
+/* Secondary login controls continue directly below the form. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.my-14,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.my-14 {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  margin: 0;
+  padding-top: 4px;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.grid.grid-cols-2.gap-5,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.grid.grid-cols-2.gap-5 {
+  grid-column: 2;
+  grid-row: 3;
+  width: 100%;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.grid.grid-cols-2.gap-5 button,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.grid.grid-cols-2.gap-5 button {
+  height: 62px;
+  border-radius: 0;
+  background: #fbf7ef;
+  border: 2px solid #171717;
+  color: #171717;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.mt-12.pt-7.border-t-2,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.mt-12.pt-7.border-t-2 {
+  grid-column: 2;
+  grid-row: 4;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 22px;
+  border-top: 2px solid #171717;
+}
+
+/* Redirect/errors should occupy the full composition width. */
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.mb-8,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.mb-8 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 .text-primary,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 .text-primary {
+  color: #171717 !important;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 .text-on-surface-variant,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 .text-on-surface-variant {
+  color: #6d675f !important;
+}
+
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 .text-on-surface,
+body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 .text-on-surface {
+  color: #171717 !important;
+}
+
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 {
+  background: #171717;
+  color: #fff9f0;
+}
+
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2) {
+  background: #202020;
+  color: #fff9f0;
+  border-color: #fff9f0;
+  box-shadow: 9px 9px 0 #000;
+}
+
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 input {
+  background: #111 !important;
+  color: #fff9f0 !important;
+  border-color: #fff9f0 !important;
+}
+
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 label,
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 label,
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 .text-on-surface-variant,
+html.dark body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 .text-on-surface-variant {
+  color: #c9c2b8 !important;
+}
+
+@media (max-width: 1100px) {
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main {
+    width: min(920px, calc(100% - 48px));
+    grid-template-columns: minmax(280px, .8fr) minmax(420px, 1.2fr);
+    column-gap: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main {
+    width: min(720px, calc(100% - 32px));
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 32px;
+    padding-top: 44px;
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:nth-of-type(2),
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2),
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.my-14,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.my-14,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.grid.grid-cols-2.gap-5,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.grid.grid-cols-2.gap-5,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.mt-12.pt-7.border-t-2,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.mt-12.pt-7.border-t-2 {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type {
+    position: static;
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > div.grid.grid-cols-2.gap-5,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > div.grid.grid-cols-2.gap-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main {
+    width: calc(100% - 24px);
+    padding-top: 28px;
+    padding-bottom: 56px;
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:nth-of-type(2),
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:nth-of-type(2) {
+    padding: 22px;
+    box-shadow: 6px 6px 0 #171717;
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 > main > section:first-of-type h1,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section:first-of-type h1 {
+    font-size: clamp(3.5rem, 17vw, 5rem);
+  }
+
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex.col.pt-20 input,
+  body:has(main[class*="max-w-[824px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 input {
+    height: 62px;
+  }
+}

@@ -1,0 +1,57 @@
+/* Keep the chat header quiet until the conversation actually has saved or pinned messages. */
+main button[title="Pinned"],
+main button[title="Saved"] {
+  display: none;
+}
+
+main:has(.ring-2.ring-dc-yellow) button[title="Pinned"] {
+  display: inline-flex;
+}
+
+/* A starred message renders Lucide Star with a filled currentColor attribute. */
+main:has(svg.w-3.h-3[fill="currentColor"]) button[title="Saved"] {
+  display: inline-flex;
+}
+
+/* The messenger is an overlay: opening it must prevent the page behind it from scrolling. */
+body:has(section.fixed.bottom-20.right-5) {
+  overflow: hidden;
+}
+
+/* Keep the entire messenger inside its viewport-sized box. */
+section.fixed.bottom-20.right-5 {
+  min-height: 0;
+  max-height: calc(100dvh - 110px);
+  overscroll-behavior: contain;
+}
+
+/* The right-hand chat column must shrink so its message list becomes the scroll owner. */
+section.fixed.bottom-20.right-5 > main,
+section.fixed.bottom-20.right-5 main.flex-1 {
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Only the message history scrolls. Header and composer remain fixed. */
+section.fixed.bottom-20.right-5 main > .flex-1.overflow-y-auto,
+section.fixed.bottom-20.right-5 main .flex-1.min-h-0.overflow-y-auto {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Prevent scrolling from escaping through the message-list wrapper. */
+section.fixed.bottom-20.right-5 main .overflow-y-auto {
+  overscroll-behavior: contain;
+}
+
+/* Also contain scrolling inside the full-screen message sub-panels. */
+section.fixed.bottom-20.right-5 main > .absolute.inset-0.overflow-y-auto,
+section.fixed.bottom-20.right-5 main > .absolute.inset-0 .overflow-y-auto {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}

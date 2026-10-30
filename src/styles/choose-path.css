@@ -1,0 +1,166 @@
+/* Choose Path — shared editorial theme for light and dark modes. */
+
+.dc-choose-path {
+  --cp-panel: var(--surface);
+  --cp-panel-low: var(--surface-container-low);
+  --cp-panel-high: var(--surface-container-high);
+  --cp-ink: var(--on-surface);
+  --cp-muted: var(--on-surface-variant);
+  --cp-border: var(--outline-variant);
+  --cp-shadow: #171717;
+}
+
+.dc-choose-path .cp-card,
+.dc-choose-path .cp-summary,
+.dc-choose-path .cp-journey {
+  background: var(--cp-panel);
+  color: var(--cp-ink);
+  border: 2px solid var(--cp-border);
+  box-shadow: 5px 5px 0 var(--cp-shadow);
+}
+
+.dc-choose-path .cp-card {
+  min-height: 210px;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.dc-choose-path .cp-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--cp-shadow);
+}
+
+.dc-choose-path .cp-card.is-selected {
+  background: color-mix(in srgb, var(--dc-blue) 20%, var(--cp-panel));
+  border-color: var(--primary);
+  box-shadow: 7px 7px 0 var(--cp-shadow);
+}
+
+html.dark .dc-choose-path .cp-card.is-selected {
+  background: color-mix(in srgb, var(--dc-blue) 13%, var(--cp-panel));
+}
+
+.dc-choose-path .cp-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cp-border);
+  background: var(--cp-panel-low);
+}
+
+.dc-choose-path .cp-card.is-selected .cp-icon {
+  background: var(--dc-blue);
+  color: #171717;
+}
+
+.dc-choose-path .cp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 2px solid var(--cp-border);
+  background: var(--cp-panel-low);
+  color: var(--cp-ink);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.dc-choose-path .cp-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cp-muted);
+}
+
+.dc-choose-path .cp-ai {
+  border: 2px solid var(--cp-border);
+  background: color-mix(in srgb, var(--dc-lavender) 42%, var(--cp-panel));
+  color: var(--cp-ink);
+}
+
+html.dark .dc-choose-path .cp-ai {
+  background: color-mix(in srgb, var(--dc-lavender) 12%, var(--cp-panel));
+}
+
+.dc-choose-path .cp-progress {
+  height: 8px;
+  overflow: hidden;
+  border: 2px solid var(--cp-border);
+  background: var(--cp-panel-low);
+}
+
+.dc-choose-path .cp-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+}
+
+.dc-choose-path .cp-journey-line {
+  position: relative;
+  margin-left: 9px;
+  padding-left: 28px;
+  border-left: 2px solid var(--cp-border);
+}
+
+.dc-choose-path .cp-journey-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.dc-choose-path .cp-journey-item:last-child {
+  padding-bottom: 0;
+}
+
+.dc-choose-path .cp-journey-dot {
+  position: absolute;
+  left: -38px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cp-border);
+  background: var(--cp-panel);
+}
+
+.dc-choose-path .cp-journey-item.is-complete .cp-journey-dot {
+  background: var(--dc-mint);
+  color: #171717;
+}
+
+.dc-choose-path .cp-journey-item.is-active .cp-journey-dot {
+  background: var(--primary);
+  color: #171717;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.dc-choose-path .cp-cta {
+  background: var(--primary);
+  color: var(--on-primary);
+  border: 2px solid var(--cp-border);
+  box-shadow: 5px 5px 0 var(--cp-shadow);
+}
+
+.dc-choose-path .cp-cta:hover {
+  background: var(--dc-mint);
+  color: #171717;
+}
+
+.dc-choose-path .cp-role-note {
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+}
+
+@media (max-width: 1279px) {
+  .dc-choose-path .cp-summary,
+  .dc-choose-path .cp-journey {
+    position: static;
+  }
+}

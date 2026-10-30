@@ -1,0 +1,90 @@
+/* DevCollective dark mode: warm, softened contrast without changing the light theme. */
+html.dark {
+  --background: #191A1D;
+  --on-background: #F4EFE7;
+  --surface: #202227;
+  --on-surface: #F4EFE7;
+  --on-surface-variant: #B9B4AA;
+  --surface-container-lowest: #16171A;
+  --surface-container-low: #1D1F23;
+  --surface-container: #25272C;
+  --surface-container-high: #2D3036;
+  --surface-container-highest: #363A42;
+  --outline: #CFC9BF;
+  --outline-variant: #656A72;
+  --primary: #A9CCFF;
+  --primary-container: #91BDF4;
+  --on-primary: #17191D;
+  --secondary: #BFE6D4;
+  --secondary-container: #A5D9C0;
+  --on-secondary: #17191D;
+  --tertiary: #F4D58B;
+  --tertiary-container: #E9C875;
+  --on-tertiary: #17191D;
+  --error: #F0B8C8;
+  --error-container: #4A3038;
+  --on-error: #17191D;
+  --dc-blue: #A9CCFF;
+  --dc-lavender: #D5C9FF;
+  --dc-mint: #BFE6D4;
+  --dc-yellow: #F4D58B;
+  --dc-pink: #F0B8C8;
+}
+html.dark body { background: var(--background); color: var(--on-background); }
+html.dark .dc-app-shell::before,
+html.dark .dc-public::before {
+  opacity: .035;
+  background-image: linear-gradient(rgba(244,239,231,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(244,239,231,.08) 1px, transparent 1px);
+}
+html.dark .dc-app-shell .bg-background { background-color: var(--background) !important; }
+html.dark .dc-app-shell .bg-surface { background-color: var(--surface) !important; }
+html.dark .dc-app-shell .bg-surface-container-lowest { background-color: var(--surface-container-lowest) !important; }
+html.dark .dc-app-shell .bg-surface-container-low { background-color: var(--surface-container-low) !important; }
+html.dark .dc-app-shell .bg-surface-container { background-color: var(--surface-container) !important; }
+html.dark .dc-app-shell .bg-surface-container-high { background-color: var(--surface-container-high) !important; }
+html.dark .dc-app-shell .bg-surface-container-highest { background-color: var(--surface-container-highest) !important; }
+html.dark .dc-app-shell .border-outline-variant,
+html.dark .dc-app-shell .border-outline-variant\/40,
+html.dark .dc-app-shell .border-outline-variant\/50,
+html.dark .dc-app-shell .border-outline-variant\/60,
+html.dark .dc-app-shell .border-outline-variant\/80,
+html.dark .dc-app-shell .border-outline-variant\/30 { border-color: var(--outline-variant) !important; }
+html.dark .dc-app-shell hr,
+html.dark .dc-app-shell .border-b-2,
+html.dark .dc-app-shell .border-t-2,
+html.dark .dc-app-shell .border-y-2 { border-color: rgba(207,201,191,.24) !important; }
+html.dark .dc-app-shell .dc-hard-shadow { box-shadow: 7px 7px 0 #0B0C0F !important; }
+html.dark .dc-app-shell .dc-hard-shadow-sm { box-shadow: 4px 4px 0 #0B0C0F !important; }
+html.dark .dc-app-shell main h1.text-white,
+html.dark .dc-app-shell main h2.text-white,
+html.dark .dc-app-shell main h3.text-white,
+html.dark .dc-app-shell main h4.text-white,
+html.dark .dc-app-shell main p.text-white,
+html.dark .dc-app-shell main span.text-white,
+html.dark .dc-app-shell main label.text-white { color: var(--on-surface) !important; }
+html.dark .dc-app-shell main input.text-white,
+html.dark .dc-app-shell main textarea.text-white,
+html.dark .dc-app-shell main select.text-white { color: var(--on-surface) !important; }
+html.dark .dc-app-shell input,
+html.dark .dc-app-shell textarea,
+html.dark .dc-app-shell select {
+  background-color: #1A1C20 !important;
+  color: var(--on-surface) !important;
+  border-color: #5C6169 !important;
+}
+html.dark .dc-app-shell input::placeholder,
+html.dark .dc-app-shell textarea::placeholder { color: #8F8B84 !important; }
+html.dark .dc-app-shell input:focus,
+html.dark .dc-app-shell textarea:focus,
+html.dark .dc-app-shell select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 3px 3px 0 rgba(169,204,255,.28) !important;
+}
+html.dark .dc-app-shell aside .bg-primary\/10 { background-color: rgba(169,204,255,.09) !important; }
+html.dark .dc-pastel-blue,
+html.dark .dc-pastel-lavender,
+html.dark .dc-pastel-mint,
+html.dark .dc-pastel-yellow,
+html.dark .dc-pastel-pink { color: #17191D; }
+html.dark .dc-app-shell .fixed.rounded-full.bg-primary,
+html.dark .dc-app-shell .fixed.bg-primary { box-shadow: 0 8px 24px rgba(0,0,0,.32); }

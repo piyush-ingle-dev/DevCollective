@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background); --color-on-background: var(--on-background); --color-surface: var(--surface); --color-on-surface: var(--on-surface);
+  --color-surface-container-lowest: var(--surface-container-lowest); --color-surface-container-low: var(--surface-container-low); --color-surface-container: var(--surface-container); --color-surface-container-high: var(--surface-container-high); --color-surface-container-highest: var(--surface-container-highest);
+  --color-outline: var(--outline); --color-outline-variant: var(--outline-variant); --color-primary: var(--primary); --color-primary-container: var(--primary-container); --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary); --color-secondary-container: var(--secondary-container); --color-on-secondary: var(--on-secondary); --color-tertiary: var(--tertiary); --color-tertiary-container: var(--tertiary-container); --color-on-tertiary: var(--on-tertiary); --color-error: var(--error); --color-error-container: var(--error-container); --color-on-error: var(--on-error);
+  --color-dc-blue: var(--dc-blue); --color-dc-lavender: var(--dc-lavender); --color-dc-mint: var(--dc-mint); --color-dc-yellow: var(--dc-yellow); --color-dc-pink: var(--dc-pink);
+  --font-display-2xl: "Inter", sans-serif; --font-headline-lg: "Inter", sans-serif; --font-headline-md: "Inter", sans-serif; --font-body-lg: "Inter", sans-serif; --font-body-md: "Inter", sans-serif; --font-label-mono: "Space Mono", monospace;
+}
+:root, html.light { color-scheme: light; --dc-shadow-color:#171717; --dc-shadow-sm:4px 4px 0 var(--dc-shadow-color); --dc-shadow-md:5px 5px 0 var(--dc-shadow-color); --dc-shadow-lg:7px 7px 0 var(--dc-shadow-color); --background:#FFF9F0; --on-background:#171717; --surface:#FFF9F0; --on-surface:#171717; --on-surface-variant:#5d5a53; --surface-container-lowest:#fffdf8; --surface-container-low:#F4EEE4; --surface-container:#EEE7DB; --surface-container-high:#E4DCCF; --surface-container-highest:#D8CFC0; --outline:#171717; --outline-variant:#171717; --primary:#B9D7FF; --primary-container:#B9D7FF; --on-primary:#171717; --secondary:#C9F4DF; --secondary-container:#C9F4DF; --on-secondary:#171717; --tertiary:#FFE3A3; --tertiary-container:#FFE3A3; --on-tertiary:#171717; --error:#171717; --error-container:#FFC7D9; --on-error:#171717; --dc-blue:#B9D7FF; --dc-lavender:#E8DFFF; --dc-mint:#C9F4DF; --dc-yellow:#FFE3A3; --dc-pink:#FFC7D9; }
+html.dark { color-scheme: dark; --dc-shadow-color:#000000; --dc-shadow-sm:4px 4px 0 var(--dc-shadow-color); --dc-shadow-md:5px 5px 0 var(--dc-shadow-color); --dc-shadow-lg:7px 7px 0 var(--dc-shadow-color); --background:#171717; --on-background:#FFF9F0; --surface:#202020; --on-surface:#FFF9F0; --on-surface-variant:#C9C2B8; --surface-container-lowest:#111111; --surface-container-low:#1d1d1d; --surface-container:#262626; --surface-container-high:#303030; --surface-container-highest:#3a3a3a; --outline:#FFF9F0; --outline-variant:#FFF9F0; --primary:#B9D7FF; --primary-container:#B9D7FF; --on-primary:#171717; --secondary:#C9F4DF; --secondary-container:#C9F4DF; --on-secondary:#171717; --tertiary:#FFE3A3; --tertiary-container:#FFE3A3; --on-tertiary:#171717; --error:#FFC7D9; --error-container:#FFC7D9; --on-error:#171717; --dc-blue:#B9D7FF; --dc-lavender:#E8DFFF; --dc-mint:#C9F4DF; --dc-yellow:#FFE3A3; --dc-pink:#FFC7D9; }
+@layer base { html{scroll-behavior:smooth} body{background:var(--background);color:var(--on-background);font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;margin:0} button,a,input,textarea,select{font-family:inherit} ::selection{background:var(--dc-yellow);color:#171717} }
+.dc-app-shell,.dc-public{position:relative;isolation:isolate}.dc-app-shell::before,.dc-public::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.07;background-image:linear-gradient(rgba(23,23,23,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(23,23,23,.18) 1px,transparent 1px);background-size:32px 32px}html.dark .dc-app-shell::before,html.dark .dc-public::before{background-image:linear-gradient(rgba(255,249,240,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,249,240,.12) 1px,transparent 1px)}
+.dc-display{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:-.065em;line-height:.9}.dc-shadow-sm{box-shadow:var(--dc-shadow-sm)}.dc-shadow-md{box-shadow:var(--dc-shadow-md)}.dc-shadow-lg{box-shadow:var(--dc-shadow-lg)}.dc-mono{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}.dc-hard-shadow{box-shadow:var(--dc-shadow-lg)}.dc-hard-shadow-sm{box-shadow:var(--dc-shadow-sm)}.dc-pastel-blue{background:var(--dc-blue);color:#171717}.dc-pastel-lavender{background:var(--dc-lavender);color:#171717}.dc-pastel-mint{background:var(--dc-mint);color:#171717}.dc-pastel-yellow{background:var(--dc-yellow);color:#171717}.dc-pastel-pink{background:var(--dc-pink);color:#171717}.dc-rule{border-color:var(--outline-variant)}.brutalist-border{border:2px solid var(--outline-variant)}.brutalist-shadow{box-shadow:4px 4px 0 var(--outline-variant)}
+.dc-app-shell .bg-surface-container,.dc-app-shell .bg-surface-container-low,.dc-app-shell .bg-surface-container-high,.dc-app-shell .bg-surface-container-highest{border-color:var(--outline-variant)}.dc-app-shell .bg-surface-container,.dc-app-shell .bg-surface-container-low{box-shadow:4px 4px 0 var(--outline-variant)}
+/* Interior app radius system: soft Apple-like geometry, while the public landing remains unchanged. */
+.dc-app-shell{--dc-radius-section:24px;--dc-radius-card:18px;--dc-radius-control:12px;--dc-radius-small:10px}
+.dc-app-shell .rounded-3xl,.dc-app-shell .rounded-2xl{border-radius:var(--dc-radius-section)}
+.dc-app-shell .rounded-xl{border-radius:var(--dc-radius-card)}
+.dc-app-shell .rounded-lg{border-radius:var(--dc-radius-control)}
+.dc-app-shell .rounded-md,.dc-app-shell .rounded{border-radius:var(--dc-radius-small)}
+.dc-app-shell .rounded-sm{border-radius:6px}
+.dc-app-shell .brutalist-border{border-radius:var(--dc-radius-card)}
+.dc-app-shell input,.dc-app-shell textarea,.dc-app-shell select{border-radius:var(--dc-radius-control)}
+.dc-app-shell button,.dc-public button{transition:transform 180ms ease,box-shadow 180ms ease,background-color 180ms ease,border-color 180ms ease,color 180ms ease}.dc-app-shell button:hover,.dc-public button:hover{transform:translate(-1px,-1px)}.dc-app-shell button:active,.dc-public button:active{transform:translate(2px,2px)}.dc-app-shell input,.dc-app-shell textarea,.dc-app-shell select{border-color:var(--outline-variant);border-radius:var(--dc-radius-control)}
+.dc-reveal{opacity:0;transform:translateY(30px);transition:opacity 700ms cubic-bezier(.16,1,.3,1),transform 700ms cubic-bezier(.16,1,.3,1);transition-delay:var(--dc-reveal-delay,0ms)}.dc-reveal-visible{opacity:1;transform:translateY(0)}
+.dc-marquee{width:100%;overflow:hidden;border-top:2px solid #171717;border-bottom:2px solid #171717;background:var(--dc-blue);color:#171717}.dc-marquee-track{display:flex;width:max-content;animation:dcMarquee 26s linear infinite}.dc-marquee-track.dc-marquee-reverse{animation-direction:reverse}.dc-marquee-content{display:flex;align-items:center;min-width:max-content}.dc-marquee-item{padding:13px 20px;font-family:"Space Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}.dc-marquee-dot{font-size:12px;opacity:.65}@keyframes dcMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.dc-status-dot{width:7px;height:7px;border:1px solid #171717;background:var(--dc-mint);display:inline-block}
+/* Theme changes use a restrained cross-page color transition rather than a flashy effect. */
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning #root,
+html.theme-transitioning #root * {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke !important;
+  transition-duration: 620ms !important;
+  transition-timing-function: cubic-bezier(.22, 1, .36, 1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning,
+  html.theme-transitioning body,
+  html.theme-transitioning #root,
+  html.theme-transitioning #root * { transition-duration: 0.01ms !important; }
+}
+/* Profile setup: keep the editorial split layout, but never inherit the old white-on-white text treatment. */
+
+/* Global interior/public radius pass: geometry only. No layout, spacing, shadows, colors, or behavior changes. */
+.dc-app-shell,.dc-public{--dc-radius-section:24px;--dc-radius-card:18px;--dc-radius-control:12px;--dc-radius-small:10px}
+.dc-app-shell .rounded-3xl,.dc-app-shell .rounded-2xl,.dc-public .rounded-3xl,.dc-public .rounded-2xl{border-radius:var(--dc-radius-section)!important}
+.dc-app-shell .rounded-xl,.dc-public .rounded-xl{border-radius:var(--dc-radius-card)!important}
+.dc-app-shell .rounded-lg,.dc-public .rounded-lg{border-radius:var(--dc-radius-control)!important}
+.dc-app-shell .rounded-md,.dc-app-shell .rounded,.dc-public .rounded-md,.dc-public .rounded{border-radius:var(--dc-radius-small)!important}
+.dc-app-shell .rounded-sm,.dc-public .rounded-sm{border-radius:6px!important}
+.dc-app-shell .brutalist-border,.dc-public .brutalist-border{border-radius:var(--dc-radius-card)!important}
+
+/* Dashboard custom surfaces (these do not use Tailwind rounded-* classes). */
+.dc-app-shell .dc-dashboard-hero{border-radius:var(--dc-radius-section)}
+.dc-app-shell .dc-dashboard-snapshot,.dc-app-shell .dc-dashboard-continue,.dc-app-shell .dc-dashboard-weekly,.dc-app-shell .dc-dashboard-command{border-radius:var(--dc-radius-card)}
+.dc-app-shell .dc-dashboard-stat,.dc-app-shell .dc-dashboard-task-row,.dc-app-shell .dc-dashboard-recommendation,.dc-app-shell .dc-dashboard-quick{border-radius:var(--dc-radius-card)}
+.dc-app-shell .dc-dashboard-action,.dc-app-shell .dc-dashboard-continue-button{border-radius:var(--dc-radius-control)}
+
+/* Level 0 custom surfaces. */
+.dc-app-shell .dc-level0-hero,.dc-app-shell .dc-level0-progress-card,.dc-app-shell .dc-level0-modules,.dc-app-shell .dc-level0-module-content,.dc-app-shell .dc-level0-stat{border-radius:var(--dc-radius-card)}
+.dc-app-shell .dc-level0-module,.dc-app-shell .dc-level0-content-row,.dc-app-shell .dc-level0-lesson{border-radius:var(--dc-radius-control)}
+
+/* Profile setup/auth custom panels. */
+.profile-setup-page > nav,.profile-setup-page > main > div > div:first-child,.profile-setup-page > main > div > div:last-child,.profile-setup-page form > div:nth-of-type(3),.profile-setup-page form > div:nth-of-type(4),.profile-setup-page form > div:nth-of-type(5){border-radius:var(--dc-radius-card)!important}
+.profile-setup-page input,.profile-setup-page textarea,.profile-setup-page select,.profile-setup-page button,.profile-setup-page label[for="resume-upload-input"]{border-radius:var(--dc-radius-control)!important}
+body:has(main[class*="max-w-[1320px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section{border-radius:var(--dc-radius-card)!important}
+body:has(main[class*="max-w-[1320px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section input,body:has(main[class*="max-w-[1320px]"]) .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20 > main > section button[type="submit"]{border-radius:var(--dc-radius-control)!important}
+
+/* Preserve circular avatars/loaders and intentionally pill-shaped controls. */
+.dc-app-shell .rounded-full,.dc-public .rounded-full,.profile-setup-page .rounded-full{border-radius:9999px!important}
+
+
+/* Community-only radius completion pass.
+   Geometry only: preserve layout, spacing, colors, shadows, animations, and behavior. */
+.dc-page-community > .space-y-8 > section:first-child {
+  border-radius: 0;
+}
+.dc-page-community > .space-y-8 > div.flex.flex-wrap.gap-2 {
+  padding: 2px 0;
+}
+.dc-page-community > .space-y-8 > div.flex.flex-wrap.gap-2 > button {
+  border-radius: var(--dc-radius-control, 12px);
+}
+.dc-page-community > .space-y-8 > section.space-y-5 > div.border-2.border-dashed,
+.dc-page-community > .space-y-8 > section.space-y-5 > article {
+  border-radius: var(--dc-radius-card, 18px);
+}
+.dc-page-community > .space-y-8 > section.space-y-5 > article .font-label-mono.border-2 {
+  border-radius: var(--dc-radius-small, 10px);
+}
+.dc-page-community > .space-y-8 > section.space-y-5 > article img,
+.dc-page-community > .space-y-8 > section.space-y-5 > article [class*="w-11"][class*="h-11"] {
+  border-radius: 12px;
+}
+.dc-page-community > .space-y-8 > section.space-y-5 > article > div:last-child > button {
+  border-radius: var(--dc-radius-small, 10px);
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface {
+  border-radius: var(--dc-radius-card, 18px);
+  overflow: hidden;
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface > form input,
+.dc-page-community .fixed.inset-0 > div.bg-surface > form textarea,
+.dc-page-community .fixed.inset-0 > div.bg-surface > form select,
+.dc-page-community .fixed.inset-0 > div.bg-surface > div input,
+.dc-page-community .fixed.inset-0 > div.bg-surface > div textarea,
+.dc-page-community .fixed.inset-0 > div.bg-surface > div select {
+  border-radius: var(--dc-radius-control, 12px);
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface button {
+  border-radius: var(--dc-radius-control, 12px);
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface .border-2.border-dashed {
+  border-radius: var(--dc-radius-control, 12px);
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface .border-2.border-outline-variant\/60 {
+  border-radius: var(--dc-radius-control, 12px);
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface .border-l-2 {
+  border-radius: 0;
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface img.w-9,
+.dc-page-community .fixed.inset-0 > div.bg-surface [class*="w-9"][class*="h-9"] {
+  border-radius: 10px;
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface form {
+  min-width: 0;
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface form input {
+  min-width: 0;
+}
+.dc-page-community .fixed.inset-0 > div.bg-surface .flex-1.border-2 {
+  border-radius: var(--dc-radius-control, 12px);
+}

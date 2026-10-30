@@ -1,0 +1,27 @@
+/* Reputation reward feedback: lightweight, page-level motion with no dependencies. */
+.dc-rep-reward{position:fixed;inset:0;z-index:80;pointer-events:none;display:grid;place-items:center;padding:24px;animation:dcRepOverlay 3s cubic-bezier(.16,1,.3,1) both}
+.dc-rep-reward-card{position:relative;display:flex;flex-direction:column;align-items:center;min-width:250px;border:2px solid var(--outline-variant);background:color-mix(in srgb,var(--surface) 92%,transparent);box-shadow:8px 8px 0 #171717;padding:22px 28px 18px;overflow:hidden;backdrop-filter:blur(10px);animation:dcRepCard 2.9s cubic-bezier(.16,1,.3,1) both}
+.dc-rep-reward-card::before,.dc-rep-reward-card::after{content:"";position:absolute;inset:16px;border:1px solid color-mix(in srgb,var(--dc-mint) 65%,transparent);opacity:0;animation:dcRepRing 2.35s cubic-bezier(.16,1,.3,1) .08s both}
+.dc-rep-reward-card::after{inset:-36px;border-color:color-mix(in srgb,var(--dc-blue) 42%,transparent);animation-delay:.16s}
+.dc-rep-reward-kicker{font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--on-surface-variant);animation:dcRepText 2.15s cubic-bezier(.16,1,.3,1) .05s both}
+.dc-rep-reward-amount{margin-top:7px;font-family:"Inter",sans-serif;font-size:clamp(2.8rem,8vw,4.5rem);font-weight:950;letter-spacing:-.08em;line-height:.88;color:var(--on-surface);animation:dcRepAmount 2s cubic-bezier(.16,1,.3,1) both}
+.dc-rep-reward-amount span{color:var(--dc-mint);text-shadow:0 0 28px color-mix(in srgb,var(--dc-mint) 38%,transparent)}
+.dc-rep-reward-caption{margin-top:9px;font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--on-surface-variant);animation:dcRepText 2.15s cubic-bezier(.16,1,.3,1) .16s both}
+.dc-rep-reward-particle{position:absolute;left:50%;top:50%;width:6px;height:6px;border:1px solid var(--outline-variant);background:var(--dc-mint);opacity:0;animation:dcRepParticle 1.8s cubic-bezier(.16,1,.3,1) .05s both}
+.dc-rep-reward-particle:nth-child(2){--x:-140px;--y:-86px;transform:translate(-50%,-50%) rotate(12deg)}
+.dc-rep-reward-particle:nth-child(3){--x:142px;--y:-70px;transform:translate(-50%,-50%) rotate(38deg);background:var(--dc-blue)}
+.dc-rep-reward-particle:nth-child(4){--x:-182px;--y:12px;transform:translate(-50%,-50%) rotate(8deg);background:var(--dc-yellow)}
+.dc-rep-reward-particle:nth-child(5){--x:176px;--y:28px;transform:translate(-50%,-50%) rotate(22deg);background:var(--dc-lavender)}
+.dc-rep-reward-particle:nth-child(6){--x:-108px;--y:104px;transform:translate(-50%,-50%) rotate(46deg);background:var(--dc-blue)}
+.dc-rep-reward-particle:nth-child(7){--x:108px;--y:102px;transform:translate(-50%,-50%) rotate(16deg);background:var(--dc-mint)}
+@keyframes dcRepOverlay{0%{opacity:0}8%{opacity:1}82%{opacity:1}100%{opacity:0}}
+@keyframes dcRepCard{0%{opacity:0;transform:translateY(18px) scale(.88);filter:blur(4px)}12%{opacity:1;transform:translateY(0) scale(1.015);filter:blur(0)}25%{transform:scale(1)}76%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+@keyframes dcRepRing{0%{opacity:0;transform:scale(.68);border-radius:50%}18%{opacity:.72}100%{opacity:0;transform:scale(1.28);border-radius:50%}}
+@keyframes dcRepAmount{0%{opacity:0;transform:translateY(16px) scale(.72);filter:blur(5px)}16%{opacity:1;transform:translateY(-2px) scale(1.06);filter:blur(0)}32%{transform:translateY(0) scale(1)}82%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-7px) scale(.98)}}
+@keyframes dcRepText{0%{opacity:0;transform:translateY(8px);letter-spacing:.28em}18%{opacity:1;transform:translateY(0);letter-spacing:.13em}82%{opacity:1}100%{opacity:0;transform:translateY(-4px)}}
+@keyframes dcRepParticle{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}16%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.75)}}
+html.dark .dc-rep-reward-card{background:rgba(32,34,39,.94);box-shadow:8px 8px 0 #111318}
+html.dark .dc-rep-reward-card::before{border-color:rgba(201,244,223,.42)}
+html.dark .dc-rep-reward-amount span{color:#C9F4DF;text-shadow:0 0 26px rgba(201,244,223,.18)}
+@media(max-width:640px){.dc-rep-reward-card{min-width:min(250px,calc(100vw - 48px));padding:20px 22px 16px}.dc-rep-reward-particle:nth-child(2){--x:-102px}.dc-rep-reward-particle:nth-child(3){--x:104px}.dc-rep-reward-particle:nth-child(4){--x:-126px}.dc-rep-reward-particle:nth-child(5){--x:124px}.dc-rep-reward-particle:nth-child(6){--x:-82px}.dc-rep-reward-particle:nth-child(7){--x:82px}}
+@media(prefers-reduced-motion:reduce){.dc-rep-reward,.dc-rep-reward-card,.dc-rep-reward-card::before,.dc-rep-reward-card::after,.dc-rep-reward-kicker,.dc-rep-reward-amount,.dc-rep-reward-caption,.dc-rep-reward-particle{animation:none!important}.dc-rep-reward{opacity:1}.dc-rep-reward-card{transform:none}.dc-rep-reward-particle{display:none}}

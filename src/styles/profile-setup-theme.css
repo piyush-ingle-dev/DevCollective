@@ -1,0 +1,182 @@
+/* Profile setup theme overrides. Loaded after profile-setup.css so dark mode wins over its editorial light defaults. */
+
+.profile-setup-page {
+  background: var(--background) !important;
+  color: var(--on-background) !important;
+  position: relative;
+  isolation: isolate;
+}
+
+.profile-setup-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .055;
+  background-image:
+    linear-gradient(rgba(23,23,23,.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,23,23,.2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.profile-setup-page > nav {
+  background: color-mix(in srgb, var(--background) 92%, transparent) !important;
+  border-color: var(--outline-variant) !important;
+  color: var(--on-background) !important;
+}
+
+.profile-setup-page > nav * {
+  color: inherit;
+}
+
+.profile-setup-page input,
+.profile-setup-page textarea,
+.profile-setup-page select {
+  background: var(--surface-container-lowest) !important;
+  color: var(--on-surface) !important;
+  border-color: var(--outline-variant) !important;
+}
+
+.profile-setup-page input::placeholder,
+.profile-setup-page textarea::placeholder {
+  color: var(--on-surface-variant) !important;
+}
+
+.profile-setup-page input:focus,
+.profile-setup-page textarea:focus,
+.profile-setup-page select:focus {
+  border-color: var(--primary) !important;
+  outline: none;
+  box-shadow: 4px 4px 0 var(--primary) !important;
+}
+
+.profile-setup-page select option {
+  background: var(--surface-container-lowest);
+  color: var(--on-surface);
+}
+
+.profile-setup-page > main > div > div:first-child {
+  color: var(--on-background);
+}
+
+.profile-setup-page > main > div > div:first-child h2 {
+  color: var(--on-background) !important;
+}
+
+.profile-setup-page > main > div > div:first-child .text-on-surface-variant,
+.profile-setup-page > main > div > div:first-child .font-label-mono {
+  color: var(--on-surface-variant) !important;
+}
+
+.profile-setup-page > main > div > div:last-child {
+  background: var(--surface) !important;
+  color: var(--on-surface) !important;
+  border-color: var(--outline-variant) !important;
+  box-shadow: 7px 7px 0 #000 !important;
+}
+
+.profile-setup-page > main > div > div:last-child::before {
+  background: var(--dc-lavender) !important;
+  color: #171717 !important;
+  border-color: #171717 !important;
+}
+
+.profile-setup-page > main > div > div:last-child * {
+  color: inherit;
+}
+
+.profile-setup-page .text-on-surface-variant {
+  color: var(--on-surface-variant) !important;
+}
+
+.profile-setup-page .text-primary {
+  color: var(--primary) !important;
+}
+
+.profile-setup-page label[for="resume-upload-input"] {
+  background: var(--surface-container-low) !important;
+  border-color: var(--outline-variant) !important;
+  color: var(--on-surface) !important;
+}
+
+.profile-setup-page label[for="resume-upload-input"]:hover {
+  background: var(--dc-blue) !important;
+  color: #171717 !important;
+}
+
+.profile-setup-page .profile-photo-frame {
+  background: var(--dc-yellow);
+  border: 2px solid var(--outline-variant);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.profile-setup-page .profile-photo-inner {
+  background: var(--surface-container-lowest);
+  border: 2px solid #171717;
+}
+
+.profile-setup-page .profile-photo-button {
+  background: var(--surface-container-low) !important;
+  color: var(--on-surface) !important;
+  border: 2px solid var(--outline-variant);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.profile-setup-page .profile-photo-button:hover {
+  background: var(--dc-blue) !important;
+  color: #171717 !important;
+}
+
+.profile-setup-page form > div:nth-of-type(3),
+.profile-setup-page form > div:nth-of-type(4),
+.profile-setup-page form > div:nth-of-type(5) {
+  border-color: color-mix(in srgb, var(--on-surface) 22%, transparent) !important;
+}
+
+.profile-setup-page .bg-dc-blue {
+  background: var(--dc-blue) !important;
+  color: #171717 !important;
+}
+
+.profile-setup-page button[type="submit"] {
+  background: var(--primary-container) !important;
+  color: var(--on-primary) !important;
+  border-color: var(--outline-variant) !important;
+  box-shadow: 5px 5px 0 #000 !important;
+}
+
+.profile-setup-page button[type="submit"]:hover {
+  background: var(--dc-mint) !important;
+  color: #171717 !important;
+}
+
+.profile-setup-page button[type="submit"]:active {
+  box-shadow: 1px 1px 0 #000 !important;
+}
+
+.profile-setup-page button:not([type="submit"]):not(.profile-photo-button) {
+  color: var(--on-surface) !important;
+}
+
+.profile-setup-page .text-error,
+.profile-setup-page .text-error * {
+  color: var(--error) !important;
+}
+
+html.dark .profile-setup-page::before {
+  background-image:
+    linear-gradient(rgba(255,249,240,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,249,240,.10) 1px, transparent 1px);
+}
+
+html.dark .profile-setup-page .dc-hard-shadow,
+html.dark .profile-setup-page .dc-hard-shadow-sm {
+  box-shadow: 4px 4px 0 #000;
+}
+
+@media (max-width: 900px) {
+  .profile-setup-page > main > div > div:first-child {
+    position: static !important;
+  }
+}

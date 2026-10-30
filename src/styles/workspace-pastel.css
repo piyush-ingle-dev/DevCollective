@@ -1,0 +1,177 @@
+/*
+ * DevCollective workspace color language
+ *
+ * Warm white remains the dominant surface. Pastels are restrained to
+ * section accents, small tinting, active states, and meaningful controls.
+ */
+
+.dc-page-dashboard,
+.dc-page-community,
+.dc-page-roadmap,
+.dc-page-leaderboard,
+.dc-page-mentors,
+.dc-page-profile {
+  --workspace-soft: var(--surface);
+}
+
+/* Shared: retain the warm-white canvas while giving major cards a quiet color identity. */
+.dc-page-dashboard section:nth-of-type(2) > div,
+.dc-page-dashboard section:nth-of-type(3) > div,
+.dc-page-community section article,
+.dc-page-leaderboard > section,
+.dc-page-mentors > section,
+.dc-page-mentors article {
+  background: color-mix(in srgb, var(--surface) 96%, var(--workspace-accent, var(--surface)) 4%);
+}
+
+/* DASHBOARD — blue = progress / action */
+.dc-page-dashboard section:nth-of-type(2) > div:nth-child(1) {
+  --workspace-accent: var(--dc-blue);
+  border-top: 6px solid var(--dc-blue);
+  background: color-mix(in srgb, var(--surface) 93%, var(--dc-blue) 7%);
+}
+.dc-page-dashboard section:nth-of-type(2) > div:nth-child(2) {
+  --workspace-accent: var(--dc-lavender);
+  border-top: 6px solid var(--dc-lavender);
+  background: color-mix(in srgb, var(--surface) 93%, var(--dc-lavender) 7%);
+}
+.dc-page-dashboard section:nth-of-type(2) > div:nth-child(3) {
+  --workspace-accent: var(--dc-mint);
+  border-top: 6px solid var(--dc-mint);
+  background: color-mix(in srgb, var(--surface) 93%, var(--dc-mint) 7%);
+}
+.dc-page-dashboard section:nth-of-type(2) > div:nth-child(4) {
+  --workspace-accent: var(--dc-yellow);
+  border-top: 6px solid var(--dc-yellow);
+  background: color-mix(in srgb, var(--surface) 93%, var(--dc-yellow) 7%);
+}
+.dc-page-dashboard section:nth-of-type(3) > div:first-child {
+  --workspace-accent: var(--dc-blue);
+  border-top: 6px solid var(--dc-blue);
+}
+.dc-page-dashboard section:nth-of-type(3) > div:last-child {
+  --workspace-accent: var(--dc-lavender);
+  border-top: 6px solid var(--dc-lavender);
+}
+
+/* COMMUNITY — mint = people / active exchange */
+.dc-page-community > section:first-of-type {
+  border-top: 6px solid var(--dc-mint);
+  padding-top: 1.25rem;
+}
+.dc-page-community > div.flex.flex-wrap.gap-2 button:first-child,
+.dc-page-community > section button {
+  background: color-mix(in srgb, var(--surface) 91%, var(--dc-mint) 9%);
+}
+.dc-page-community > div.flex.flex-wrap.gap-2 button.bg-primary {
+  background: var(--dc-mint);
+  color: var(--on-surface);
+}
+.dc-page-community section article:nth-of-type(4n + 1) {
+  border-left: 6px solid var(--dc-mint);
+}
+.dc-page-community section article:nth-of-type(4n + 2) {
+  border-left: 6px solid var(--dc-blue);
+}
+.dc-page-community section article:nth-of-type(4n + 3) {
+  border-left: 6px solid var(--dc-lavender);
+}
+.dc-page-community section article:nth-of-type(4n) {
+  border-left: 6px solid var(--dc-yellow);
+}
+
+/* ROADMAPS — lavender = discovery / AI / future */
+.dc-page-roadmap > div:first-child > div:first-child > div:first-child {
+  background: color-mix(in srgb, var(--surface) 88%, var(--dc-lavender) 12%);
+  border-color: color-mix(in srgb, var(--dc-lavender) 55%, var(--outline-variant) 45%);
+}
+.dc-page-roadmap > div:nth-child(2) {
+  background: color-mix(in srgb, var(--surface) 91%, var(--dc-lavender) 9%);
+  border-color: color-mix(in srgb, var(--dc-lavender) 60%, var(--outline-variant) 40%);
+  box-shadow: 6px 6px 0 var(--on-background);
+}
+.dc-page-roadmap > div:nth-child(2) input,
+.dc-page-roadmap > div:nth-child(2) button {
+  background: color-mix(in srgb, var(--surface) 90%, var(--dc-lavender) 10%);
+}
+.dc-page-roadmap > div:nth-child(2) button[class*="bg-gradient"] {
+  background: linear-gradient(90deg, var(--dc-blue), var(--dc-lavender));
+  color: var(--on-surface);
+}
+.dc-page-roadmap > div:nth-child(2) > div:first-child > div:first-child > div:first-child {
+  background: linear-gradient(135deg, var(--dc-blue), var(--dc-lavender));
+}
+
+/* ROADMAPS — light-mode text correction: the legacy white heading classes
+ * were designed for the older dark surface and become unreadable on warm white. */
+html.light .dc-page-roadmap h2.text-white,
+html.light .dc-page-roadmap h3.text-white,
+html.light .dc-page-roadmap h4.text-white {
+  color: var(--on-surface) !important;
+}
+html.light .dc-page-roadmap .text-white:not(button):not(a) {
+  color: var(--on-surface) !important;
+}
+html.light .dc-page-roadmap button.text-white,
+html.light .dc-page-roadmap a.text-white {
+  color: var(--on-primary) !important;
+}
+
+/* LEADERBOARD — yellow = achievement / recognition */
+.dc-page-leaderboard > header > div:first-child > div {
+  background: var(--dc-yellow);
+}
+.dc-page-leaderboard > section {
+  border-top: 6px solid var(--dc-blue);
+}
+.dc-page-leaderboard > section + div {
+  border-top: 4px solid var(--dc-yellow);
+  padding-top: 1rem;
+}
+.dc-page-leaderboard > section:last-of-type {
+  border-top-color: var(--dc-yellow);
+}
+.dc-page-leaderboard table thead {
+  background: color-mix(in srgb, var(--surface) 88%, var(--dc-yellow) 12%);
+}
+.dc-page-leaderboard tbody tr:nth-child(4n + 1) .text-primary {
+  color: color-mix(in srgb, var(--on-surface) 65%, var(--dc-yellow) 35%);
+}
+
+/* MENTORS — peach/pink = human connection, guidance */
+.dc-page-mentors > section:first-of-type {
+  border-top: 6px solid color-mix(in srgb, var(--dc-pink) 68%, var(--dc-yellow) 32%);
+}
+.dc-page-mentors > section:nth-of-type(2) {
+  --mentor-peach: color-mix(in srgb, var(--dc-pink) 48%, var(--dc-yellow) 52%);
+  border-top: 6px solid var(--mentor-peach);
+  background: color-mix(in srgb, var(--surface) 93%, var(--mentor-peach) 7%);
+}
+.dc-page-mentors article {
+  border-top-width: 6px;
+  border-top-color: color-mix(in srgb, var(--dc-pink) 62%, var(--dc-yellow) 38%);
+}
+.dc-page-mentors article:nth-child(3n + 2) {
+  border-top-color: var(--dc-blue);
+}
+.dc-page-mentors article:nth-child(3n) {
+  border-top-color: var(--dc-lavender);
+}
+
+/* Warm-white protection: accents should tint, not replace, the product canvas. */
+.dc-page-dashboard,
+.dc-page-community,
+.dc-page-roadmap,
+.dc-page-leaderboard,
+.dc-page-mentors {
+  background: var(--background);
+}
+
+@media (max-width: 767px) {
+  .dc-page-dashboard section:nth-of-type(2) > div,
+  .dc-page-community section article,
+  .dc-page-leaderboard > section,
+  .dc-page-mentors article {
+    border-top-width: 4px;
+  }
+}

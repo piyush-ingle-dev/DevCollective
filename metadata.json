@@ -1,0 +1,6 @@
+{
+  "name": "DevCollective",
+  "description": "College Developer Platform MVP with Native Email/Password Authentication, Role-based Authorization, Reputation Systems, Learning Roadmaps, Leaderboards, Mentor Directory & Admin Control.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

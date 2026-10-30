@@ -1,0 +1,93 @@
+/* Reading mode: a visible warm white-balance layer with a full 3-second fade. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(255, 184, 92, 0.22);
+  transition: opacity 3s ease-in-out;
+}
+
+html.dc-reading-mode body::after {
+  opacity: 1;
+}
+
+/* Theme switching: fade the interface together instead of only the page root. */
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning #root,
+html.theme-transitioning #root * {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke !important;
+  transition-duration: 720ms !important;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Chromium's View Transitions API gives supported browsers a clean page-level crossfade. */
+html {
+  view-transition-name: root;
+}
+
+::view-transition-group(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 720ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* REP is intentionally stronger than the surrounding utility controls so it reads at a glance. */
+header > div:nth-child(2) > div:last-of-type > button:first-child {
+  min-width: 96px;
+  min-height: 44px;
+  padding: 4px 9px 4px 5px;
+  background: var(--dc-yellow);
+  border: 2px solid var(--outline-variant);
+  box-shadow: 4px 4px 0 var(--outline-variant);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+header > div:nth-child(2) > div:last-of-type > button:first-child:hover {
+  background: var(--dc-blue);
+  border-color: var(--outline-variant);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--outline-variant);
+}
+
+header > div:nth-child(2) > div:last-of-type > button:first-child:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--outline-variant);
+}
+
+header > div:nth-child(2) > div:last-of-type > button:first-child > span {
+  color: #171717;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 640px) {
+  header > div:nth-child(2) > div:last-of-type > button:first-child > span {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    transition-duration: 0.01ms;
+  }
+
+  html.theme-transitioning,
+  html.theme-transitioning body,
+  html.theme-transitioning #root,
+  html.theme-transitioning #root * {
+    transition-duration: 0.01ms !important;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,1 @@
+.dc-social-profile-link{cursor:pointer;transition:transform 180ms cubic-bezier(.16,1,.3,1),box-shadow 180ms ease,opacity 180ms ease}.dc-social-profile-link:hover{opacity:.9;transform:translateY(-1px)}.dc-social-profile-link:focus-visible{outline:2px solid var(--primary);outline-offset:2px}.dc-social-profile-link[data-dc-profile-id]{text-decoration:none}

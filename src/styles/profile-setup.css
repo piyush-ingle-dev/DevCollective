@@ -1,0 +1,179 @@
+/* Profile Setup — C·FLOW editorial treatment. Scoped through the resume uploader marker. */
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) {
+  --profile-ink: #171717;
+  --profile-paper: #f7f2e9;
+  --profile-panel: #fbf7ef;
+  --profile-muted: #6d675f;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(185, 215, 255, 0.24), transparent 26%),
+    radial-gradient(circle at 12% 76%, rgba(232, 223, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 58% 92%, rgba(201, 244, 223, 0.18), transparent 24%),
+    #f7f2e9;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"])::before {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(23,23,23,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,23,23,0.055) 1px, transparent 1px),
+    radial-gradient(rgba(23,23,23,0.12) 0.65px, transparent 0.75px);
+  background-size: 32px 32px, 32px 32px, 7px 7px;
+  background-position: 0 0, 0 0, 1px 2px;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main {
+  padding-top: clamp(46px, 6vw, 88px);
+}
+
+/* Left editorial rail. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:first-child {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:first-child h2 {
+  position: relative;
+  max-width: 7ch;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:first-child h2::after {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 10px;
+  margin-top: 24px;
+  background: #b9d7ff;
+  border: 2px solid var(--profile-ink);
+  box-shadow: 5px 5px 0 var(--profile-ink);
+}
+
+/* Main form becomes a physical work surface instead of a soft card. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:last-child {
+  background: rgba(251,247,239,0.92);
+  box-shadow: 9px 9px 0 var(--profile-ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:last-child::before {
+  content: "PROFILE DATA / INPUT TERMINAL";
+  display: block;
+  margin: -48px -48px 32px;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--profile-ink);
+  background: #e8dfff;
+  color: var(--profile-ink);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* Avatar is treated as an identity module. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:first-child > div:first-child {
+  width: 178px;
+  height: 178px;
+  padding: 10px;
+  background: #ffe3a3;
+  border: 2px solid var(--profile-ink);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--profile-ink);
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:first-child > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--profile-ink);
+  border-radius: 50%;
+  background: #fffdf8;
+}
+
+/* Resume import gets a stronger technical drop-zone treatment. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) label[for="resume-upload-input"] {
+  min-height: 92px;
+  padding: 18px 20px;
+  background: #f4eee4;
+  border: 2px dashed var(--profile-ink);
+  border-radius: 0;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) label[for="resume-upload-input"]:hover {
+  background: #b9d7ff;
+  transform: translate(-1px, -1px);
+}
+
+/* Inputs: quieter surfaces, sharper hierarchy. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) input,
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) textarea,
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) select {
+  background: #fffdf8;
+  border: 2px solid var(--profile-ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) input:focus,
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) textarea:focus,
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) select:focus {
+  border-color: var(--profile-ink);
+  box-shadow: 4px 4px 0 #b9d7ff;
+}
+
+/* Section labels and separators. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:not(:first-child) > label,
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:not(:first-child) label {
+  color: var(--profile-muted);
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.13em;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:nth-of-type(3),
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:nth-of-type(4),
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:nth-of-type(5) {
+  padding-top: 22px;
+  border-top: 2px solid rgba(23,23,23,0.18);
+}
+
+/* Skills are chips, but intentionally square/technical rather than pill UI. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form .rounded-full {
+  border-radius: 2px;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form .bg-primary-container\/20 {
+  background: #b9d7ff;
+  color: var(--profile-ink);
+  border: 2px solid var(--profile-ink);
+}
+
+/* Primary action feels like a commit operation. */
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) button[type="submit"] {
+  min-height: 58px;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--profile-ink);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) button[type="submit"]:hover {
+  background: #c9f4df;
+}
+
+@media (max-width: 900px) {
+  .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:first-child {
+    min-height: auto;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) > main > div > div:last-child::before {
+    margin: -20px -20px 24px;
+  }
+  .min-h-screen.bg-background.text-on-background.flex.flex-col.pt-20:has(label[for="resume-upload-input"]) form > div:first-child > div:first-child {
+    width: 148px;
+    height: 148px;
+  }
+}

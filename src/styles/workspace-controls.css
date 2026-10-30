@@ -1,0 +1,46 @@
+/* DevCollective workspace controls: restrained, product-like controls across the authenticated app. */
+.dc-app-shell button,.dc-app-shell a{font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;letter-spacing:-0.01em}
+.dc-app-shell button.font-label-mono,.dc-app-shell a.font-label-mono{font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-weight:650;letter-spacing:.01em}
+.dc-app-shell aside button.bg-primary-container{background:var(--surface-container-high)!important;color:var(--on-surface)!important;border:1px solid var(--outline-variant);border-radius:7px!important;box-shadow:3px 3px 0 var(--outline-variant)!important;font-size:.78rem;font-weight:700;letter-spacing:0}
+.dc-app-shell aside button.bg-primary-container:hover{background:color-mix(in srgb,var(--dc-blue) 34%,var(--surface-container-high))!important;color:var(--on-surface)!important}
+html.dark .dc-app-shell aside button.bg-primary-container{background:#2B2E34!important;color:#EEEAE3!important;border-color:#5B6068!important;box-shadow:3px 3px 0 #111318!important}
+html.dark .dc-app-shell aside button.bg-primary-container:hover{background:rgba(169,204,255,.16)!important;border-color:rgba(169,204,255,.55)!important;color:#DCEBFF!important}
+.dc-page-roadmap button[class*="bg-surface-container-low"]{background:var(--surface)!important;border-color:color-mix(in srgb,var(--outline-variant) 70%,transparent)!important;color:var(--on-surface)!important;border-radius:6px!important;box-shadow:2px 2px 0 var(--outline-variant)!important;font-size:.82rem;font-weight:600;padding-top:.55rem!important;padding-bottom:.55rem!important}
+.dc-page-roadmap button[class*="bg-surface-container-low"]:hover{background:color-mix(in srgb,var(--dc-lavender) 42%,var(--surface))!important;border-color:var(--dc-lavender)!important;color:var(--on-surface)!important}
+html.dark .dc-page-roadmap button[class*="bg-surface-container-low"]{background:#22252A!important;border-color:#565B63!important;color:#EAE6DE!important;box-shadow:2px 2px 0 #101216!important}
+html.dark .dc-page-roadmap button[class*="bg-surface-container-low"]:hover{background:rgba(213,201,255,.13)!important;border-color:rgba(213,201,255,.5)!important;color:#E7DFFF!important}
+.dc-page-roadmap button[class*="bg-gradient-to-r"]{background:color-mix(in srgb,var(--dc-blue) 70%,var(--dc-mint))!important;color:#17191D!important;box-shadow:2px 2px 0 var(--outline-variant)!important;border-radius:6px!important}
+html.dark .dc-page-roadmap button[class*="bg-gradient-to-r"]{background:rgba(169,204,255,.16)!important;color:#DCEBFF!important;border:1px solid rgba(169,204,255,.42);box-shadow:2px 2px 0 #111318!important}
+.dc-page-roadmap button[type="submit"]{border-radius:6px!important;font-family:"Inter",system-ui,sans-serif!important;font-weight:700!important;letter-spacing:0!important}
+html.dark .dc-page-roadmap button[type="submit"]{background:#2E333A!important;color:#DCEBFF!important;border:1px solid #646A73!important;box-shadow:2px 2px 0 #111318!important}
+html.dark .dc-page-roadmap button[type="submit"]:not(:disabled):hover{background:rgba(169,204,255,.18)!important;border-color:rgba(169,204,255,.56)!important}
+html.dark .dc-page-roadmap button[type="submit"]:disabled{color:#989D99!important;background:#26292E!important;border-color:#4C5057!important;opacity:.78}
+html.dark .dc-app-shell button.fixed.rounded-full.bg-primary,html.dark .dc-app-shell button.fixed.bg-primary{background:#2B3037!important;color:#C9DEFF!important;border:1px solid #59616B!important;box-shadow:0 8px 22px rgba(0,0,0,.30)!important}
+html.dark .dc-app-shell button.fixed.rounded-full.bg-primary:hover,html.dark .dc-app-shell button.fixed.bg-primary:hover{background:#343A43!important;border-color:#89B9F5!important}
+.dc-app-shell header button{border-radius:6px}.dc-app-shell header button.bg-primary{background:var(--surface-container-high)!important;color:var(--on-surface)!important;border:1px solid var(--outline-variant);box-shadow:2px 2px 0 var(--outline-variant)}
+html.dark .dc-app-shell header button.bg-primary{background:#2B2E34!important;color:#EEEAE3!important;border-color:#5B6068!important;box-shadow:2px 2px 0 #111318!important}
+html.dark .dc-app-shell header button.bg-primary:hover{background:rgba(169,204,255,.15)!important;color:#DCEBFF!important;border-color:rgba(169,204,255,.52)!important}
+html.dark .dc-app-shell aside nav button{border-radius:7px!important;box-shadow:none!important}html.dark .dc-app-shell aside nav button.text-primary{background:rgba(169,204,255,.08)!important;color:#BFD9FF!important}
+
+/* Smooth, understated lift for actual content blocks. Kept CSS-only so it adds no runtime cost or animation dependency. */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .dc-app-shell main section.border-2,
+  .dc-app-shell main article.border-2,
+  .dc-app-shell main .dc-hover-block{
+    transition:transform 360ms cubic-bezier(.16,1,.3,1),box-shadow 360ms cubic-bezier(.16,1,.3,1),border-color 260ms ease,background-color 260ms ease;
+    will-change:transform;
+  }
+  .dc-app-shell main section.border-2:hover,
+  .dc-app-shell main article.border-2:hover,
+  .dc-app-shell main .dc-hover-block:hover{
+    transform:translateY(-5px) scale(1.005);
+    box-shadow:7px 9px 0 color-mix(in srgb,var(--outline-variant) 78%,transparent);
+    border-color:color-mix(in srgb,var(--outline-variant) 88%,var(--primary));
+  }
+  .dc-app-shell main .dc-hover-block:hover{z-index:2}
+  .dc-app-shell main section.border-2:hover > .dc-hover-block,
+  .dc-app-shell main article.border-2:hover > .dc-hover-block{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .dc-app-shell main section.border-2,.dc-app-shell main article.border-2,.dc-app-shell main .dc-hover-block{transition:none}
+}

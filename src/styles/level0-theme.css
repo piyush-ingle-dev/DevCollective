@@ -1,0 +1,507 @@
+/*
+ * DevCollective — Level 0 workspace
+ * Visual-only layer. Curriculum, progress, verification and API behavior are untouched.
+ * The page inherits the same warm-white / pastel / hard-outline language as the rest of the app.
+ */
+
+.dc-page-level-0 {
+  --l0-ink: var(--on-surface);
+  --l0-muted: var(--on-surface-variant);
+  --l0-line: var(--outline-variant);
+  --l0-blue: var(--dc-blue);
+  --l0-lavender: var(--dc-lavender);
+  --l0-mint: var(--dc-mint);
+  --l0-yellow: var(--dc-yellow);
+  color: var(--on-background);
+  position: relative;
+}
+
+/* Quiet technical grid — consistent with the DevCollective workspace. */
+.dc-page-level-0::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .035;
+  background-image:
+    linear-gradient(rgba(23,23,23,.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,23,23,.22) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dc-page-level-0 > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* -------------------- HERO -------------------- */
+.dc-page-level-0 > div > header {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--l0-blue) 58%, var(--surface) 42%),
+      color-mix(in srgb, var(--l0-lavender) 52%, var(--surface) 48%) 54%,
+      color-mix(in srgb, var(--l0-mint) 42%, var(--surface) 58%)) !important;
+  color: var(--l0-ink) !important;
+  border: 2px solid var(--l0-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 7px 7px 0 var(--l0-line) !important;
+}
+
+.dc-page-level-0 > div > header::after {
+  content: "LEVEL / 00";
+  position: absolute;
+  right: 28px;
+  top: 24px;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: color-mix(in srgb, var(--l0-ink) 58%, transparent);
+  pointer-events: none;
+}
+
+.dc-page-level-0 > div > header > div:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+.dc-page-level-0 > div > header h1,
+.dc-page-level-0 > div > header h2,
+.dc-page-level-0 > div > header h3,
+.dc-page-level-0 > div > header p,
+.dc-page-level-0 > div > header span {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 > div > header h1 {
+  max-width: 900px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  letter-spacing: -.065em;
+  line-height: .94;
+}
+
+.dc-page-level-0 > div > header p {
+  color: var(--l0-muted) !important;
+}
+
+.dc-page-level-0 > div > header .text-primary {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 > div > header .inline-flex {
+  background: color-mix(in srgb, var(--l0-blue) 32%, var(--surface) 68%) !important;
+  border-color: var(--l0-line) !important;
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 > div > header > div:last-child > div {
+  background: color-mix(in srgb, var(--surface) 78%, transparent) !important;
+  border: 2px solid var(--l0-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 4px 4px 0 var(--l0-line);
+}
+
+.dc-page-level-0 > div > header > div:last-child .text-3xl {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 > div > header > div:last-child > div:nth-child(2) .text-3xl {
+  color: color-mix(in srgb, var(--l0-blue) 72%, var(--l0-ink) 28%) !important;
+}
+
+.dc-page-level-0 > div > header .h-3 {
+  height: 10px;
+  background: color-mix(in srgb, var(--surface) 72%, var(--l0-blue) 28%) !important;
+  border: 2px solid var(--l0-line) !important;
+}
+
+.dc-page-level-0 > div > header .h-3 > div {
+  background: linear-gradient(90deg, var(--l0-blue), var(--l0-lavender), var(--l0-mint)) !important;
+}
+
+.dc-page-level-0 > div > header .text-outline {
+  color: var(--l0-muted) !important;
+}
+
+/* -------------------- TWO-COLUMN WORKSPACE -------------------- */
+.dc-page-level-0 > div > div.grid {
+  align-items: start;
+}
+
+.dc-page-level-0 > div > div.grid > aside {
+  background: var(--surface) !important;
+  color: var(--l0-ink) !important;
+  border: 2px solid var(--l0-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 5px 5px 0 var(--l0-line) !important;
+  position: sticky;
+  top: 18px;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--l0-line) transparent;
+}
+
+.dc-page-level-0 aside .text-white,
+.dc-page-level-0 aside .text-on-surface,
+.dc-page-level-0 aside .text-on-surface-variant,
+.dc-page-level-0 aside .text-primary,
+.dc-page-level-0 aside .text-secondary,
+.dc-page-level-0 aside .text-tertiary {
+  color: inherit !important;
+}
+
+.dc-page-level-0 aside .text-white,
+.dc-page-level-0 aside .font-bold {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 aside .text-on-surface-variant,
+.dc-page-level-0 aside .text-outline {
+  color: var(--l0-muted) !important;
+}
+
+.dc-page-level-0 aside > div:first-child {
+  border-color: color-mix(in srgb, var(--l0-line) 55%, transparent) !important;
+}
+
+.dc-page-level-0 aside > div:first-child > div:first-child {
+  background: color-mix(in srgb, var(--l0-blue) 22%, var(--surface) 78%) !important;
+  border-color: var(--l0-line) !important;
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 aside button {
+  border-radius: 8px !important;
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 aside button:hover {
+  background: color-mix(in srgb, var(--l0-blue) 14%, var(--surface)) !important;
+  border-color: color-mix(in srgb, var(--l0-blue) 60%, var(--l0-line)) !important;
+}
+
+.dc-page-level-0 aside button[class*="bg-primary"] {
+  background: color-mix(in srgb, var(--l0-blue) 24%, var(--surface)) !important;
+  color: var(--l0-ink) !important;
+  border-color: var(--l0-blue) !important;
+}
+
+.dc-page-level-0 aside .bg-surface,
+.dc-page-level-0 aside .bg-surface-container,
+.dc-page-level-0 aside .bg-surface-container-low,
+.dc-page-level-0 aside .bg-surface-container-high,
+.dc-page-level-0 aside .bg-surface-container-highest {
+  background: var(--surface-container-low) !important;
+}
+
+.dc-page-level-0 aside .bg-tertiary\/10 {
+  background: color-mix(in srgb, var(--l0-mint) 20%, var(--surface)) !important;
+}
+
+/* -------------------- MAIN LESSON CARD -------------------- */
+.dc-page-level-0 main {
+  min-width: 0;
+}
+
+.dc-page-level-0 main > section {
+  background: var(--surface) !important;
+  color: var(--l0-ink) !important;
+  border: 2px solid var(--l0-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 6px 6px 0 var(--l0-line) !important;
+  overflow: hidden;
+}
+
+.dc-page-level-0 main > section > div:first-child {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--l0-lavender) 18%, var(--surface) 82%),
+    color-mix(in srgb, var(--l0-mint) 12%, var(--surface) 88%)) !important;
+  border-color: color-mix(in srgb, var(--l0-line) 45%, transparent) !important;
+}
+
+.dc-page-level-0 main .text-white,
+.dc-page-level-0 main .font-bold,
+.dc-page-level-0 main h2,
+.dc-page-level-0 main h3 {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 main .text-on-surface-variant,
+.dc-page-level-0 main .text-outline {
+  color: var(--l0-muted) !important;
+}
+
+.dc-page-level-0 main .text-primary {
+  color: color-mix(in srgb, var(--l0-blue) 72%, var(--l0-ink) 28%) !important;
+}
+
+.dc-page-level-0 main .text-secondary {
+  color: color-mix(in srgb, var(--l0-mint) 68%, var(--l0-ink) 32%) !important;
+}
+
+.dc-page-level-0 main .text-tertiary {
+  color: color-mix(in srgb, var(--l0-yellow) 68%, var(--l0-ink) 32%) !important;
+}
+
+.dc-page-level-0 main .bg-surface {
+  background: var(--surface-container-lowest) !important;
+}
+
+.dc-page-level-0 main .bg-surface-container,
+.dc-page-level-0 main .bg-surface-container-low,
+.dc-page-level-0 main .bg-surface-container-high,
+.dc-page-level-0 main .bg-surface-container-highest {
+  background: var(--surface-container-low) !important;
+}
+
+.dc-page-level-0 main .border-outline-variant,
+.dc-page-level-0 main .border-outline-variant\/30,
+.dc-page-level-0 main .border-outline-variant\/40,
+.dc-page-level-0 main .border-outline-variant\/50,
+.dc-page-level-0 main .border-outline-variant\/60,
+.dc-page-level-0 main .border-outline-variant\/80 {
+  border-color: var(--l0-line) !important;
+}
+
+/* Content blocks get subtle pastel identity instead of competing with the lesson text. */
+.dc-page-level-0 main section .bg-primary\/10 {
+  background: color-mix(in srgb, var(--l0-blue) 18%, var(--surface-container-lowest)) !important;
+}
+
+.dc-page-level-0 main section .bg-primary\/5 {
+  background: color-mix(in srgb, var(--l0-blue) 9%, var(--surface)) !important;
+}
+
+.dc-page-level-0 main section .bg-secondary\/10 {
+  background: color-mix(in srgb, var(--l0-mint) 18%, var(--surface)) !important;
+}
+
+.dc-page-level-0 main section .bg-tertiary\/10 {
+  background: color-mix(in srgb, var(--l0-yellow) 20%, var(--surface)) !important;
+}
+
+.dc-page-level-0 main section .bg-surface.border,
+.dc-page-level-0 main section .bg-surface-container.border {
+  border-width: 1px !important;
+}
+
+.dc-page-level-0 main section .rounded-3xl,
+.dc-page-level-0 main section .rounded-2xl,
+.dc-page-level-0 main section .rounded-xl {
+  border-radius: 8px !important;
+}
+
+/* Module / submodule list hierarchy. */
+.dc-page-level-0 main section .grid > div:first-child {
+  background: color-mix(in srgb, var(--surface-container-low) 88%, var(--l0-lavender) 12%) !important;
+}
+
+.dc-page-level-0 main section .grid > div:first-child button {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 main section .grid > div:first-child button:hover {
+  background: color-mix(in srgb, var(--l0-blue) 10%, var(--surface)) !important;
+}
+
+.dc-page-level-0 main section .grid > div:first-child button[class*="bg-primary"] {
+  background: color-mix(in srgb, var(--l0-blue) 16%, var(--surface)) !important;
+  border-color: var(--l0-blue) !important;
+}
+
+/* Resource cards. */
+.dc-page-level-0 main section iframe {
+  display: block;
+  border: 0;
+}
+
+.dc-page-level-0 main section .bg-black {
+  background: #171717 !important;
+}
+
+.dc-page-level-0 main section a {
+  color: var(--l0-ink) !important;
+}
+
+.dc-page-level-0 main section a:hover {
+  background: var(--l0-blue) !important;
+  color: #171717 !important;
+}
+
+/* Primary learning action: readable in both themes, deliberately bold like the rest of DevCollective. */
+.dc-page-level-0 main section button[class*="bg-gradient"] {
+  background: linear-gradient(90deg, var(--l0-blue), var(--l0-lavender)) !important;
+  color: #171717 !important;
+  border: 2px solid var(--l0-line) !important;
+  border-radius: 6px !important;
+  box-shadow: 4px 4px 0 var(--l0-line) !important;
+}
+
+.dc-page-level-0 main section button[class*="bg-gradient"]:hover {
+  background: linear-gradient(90deg, var(--l0-mint), var(--l0-blue)) !important;
+}
+
+.dc-page-level-0 main section button[class*="bg-gradient"]:active {
+  box-shadow: 1px 1px 0 var(--l0-line) !important;
+  transform: translate(3px, 3px);
+}
+
+.dc-page-level-0 main section button.bg-surface {
+  background: var(--surface-container-low) !important;
+  color: var(--l0-ink) !important;
+}
+
+/* Bottom reward / unlock cards. */
+.dc-page-level-0 > div > div.grid > main > section:last-child > div {
+  background: var(--surface) !important;
+  border-color: var(--l0-line) !important;
+  border-top-width: 5px !important;
+}
+
+.dc-page-level-0 > div > div.grid > main > section:last-child > div:nth-child(1) {
+  border-top-color: var(--l0-blue) !important;
+}
+
+.dc-page-level-0 > div > div.grid > main > section:last-child > div:nth-child(2) {
+  border-top-color: var(--l0-mint) !important;
+}
+
+.dc-page-level-0 > div > div.grid > main > section:last-child > div:nth-child(3) {
+  border-top-color: var(--l0-yellow) !important;
+}
+
+/* -------------------- DARK MODE -------------------- */
+html.dark .dc-page-level-0::before {
+  opacity: .028;
+  background-image:
+    linear-gradient(rgba(255,249,240,.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,249,240,.14) 1px, transparent 1px);
+}
+
+html.dark .dc-page-level-0 > div > header {
+  background: linear-gradient(135deg, #2C3747, #363244 54%, #2D4038) !important;
+  border-color: #777b82 !important;
+  box-shadow: 7px 7px 0 #0B0C0F !important;
+}
+
+html.dark .dc-page-level-0 > div > header h1,
+html.dark .dc-page-level-0 > div > header h2,
+html.dark .dc-page-level-0 > div > header h3,
+html.dark .dc-page-level-0 > div > header p,
+html.dark .dc-page-level-0 > div > header span,
+html.dark .dc-page-level-0 main .text-white,
+html.dark .dc-page-level-0 main .font-bold,
+html.dark .dc-page-level-0 main h2,
+html.dark .dc-page-level-0 main h3,
+html.dark .dc-page-level-0 aside .text-white,
+html.dark .dc-page-level-0 aside .font-bold {
+  color: var(--on-surface) !important;
+}
+
+html.dark .dc-page-level-0 > div > header p,
+html.dark .dc-page-level-0 main .text-on-surface-variant,
+html.dark .dc-page-level-0 main .text-outline,
+html.dark .dc-page-level-0 aside .text-on-surface-variant,
+html.dark .dc-page-level-0 aside .text-outline {
+  color: var(--on-surface-variant) !important;
+}
+
+html.dark .dc-page-level-0 > div > header > div:last-child > div {
+  background: rgba(32,34,39,.82) !important;
+  border-color: #777b82 !important;
+  box-shadow: 4px 4px 0 #0B0C0F !important;
+}
+
+html.dark .dc-page-level-0 > div > div.grid > aside,
+html.dark .dc-page-level-0 main > section {
+  background: var(--surface) !important;
+  border-color: #656A72 !important;
+  box-shadow: 5px 5px 0 #0B0C0F !important;
+}
+
+html.dark .dc-page-level-0 main section > div:first-child {
+  background: linear-gradient(90deg, #302D3B, #293A35) !important;
+}
+
+html.dark .dc-page-level-0 main section .bg-surface {
+  background: #16171A !important;
+}
+
+html.dark .dc-page-level-0 main section .bg-surface-container,
+html.dark .dc-page-level-0 main section .bg-surface-container-low,
+html.dark .dc-page-level-0 aside .bg-surface-container,
+html.dark .dc-page-level-0 aside .bg-surface-container-low {
+  background: #25272C !important;
+}
+
+html.dark .dc-page-level-0 main section button[class*="bg-gradient"] {
+  color: #171717 !important;
+  border-color: #656A72 !important;
+  box-shadow: 4px 4px 0 #0B0C0F !important;
+}
+
+html.dark .dc-page-level-0 main section button[class*="bg-gradient"]:hover {
+  background: linear-gradient(90deg, var(--dc-mint), var(--dc-blue)) !important;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1023px) {
+  .dc-page-level-0 > div > div.grid > aside {
+    position: relative;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .dc-page-level-0 main > section,
+  html.dark .dc-page-level-0 main > section {
+    box-shadow: 4px 4px 0 var(--l0-line) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .dc-page-level-0 > div > header::after {
+    display: none;
+  }
+
+  .dc-page-level-0 > div > header h1 {
+    font-size: clamp(2.1rem, 10vw, 3.2rem) !important;
+  }
+
+  .dc-page-level-0 main > section > div {
+    padding: 20px !important;
+  }
+
+  .dc-page-level-0 main section .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dc-page-level-0 main section .grid > div:first-child {
+    border-right: 0 !important;
+    border-bottom: 2px solid var(--l0-line) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dc-page-level-0 > div > header {
+    padding: 20px !important;
+  }
+
+  .dc-page-level-0 > div > header > div:last-child {
+    min-width: 0 !important;
+  }
+
+  .dc-page-level-0 .text-4xl {
+    font-size: 2rem !important;
+    line-height: 1 !important;
+  }
+
+  .dc-page-level-0 .text-3xl {
+    font-size: 1.55rem !important;
+  }
+}
